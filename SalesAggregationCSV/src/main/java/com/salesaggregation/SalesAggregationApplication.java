@@ -54,7 +54,7 @@ public class SalesAggregationApplication extends Configured implements Tool {
 	    	        
 	        Job job = Job.getInstance(config);
 //	        System.out.println("job");
-	        job.setMapOutputKeyClass(LongWritable.class);
+	        job.setMapOutputKeyClass(Text.class);
 	        job.setMapOutputValueClass(Text.class);
 	        job.setOutputKeyClass(Text.class);
 	        job.setOutputValueClass(Text.class);
@@ -66,7 +66,6 @@ public class SalesAggregationApplication extends Configured implements Tool {
 //	        job.setInputFormatClass(TextInputFormat.class);
 //	        job.setOutputFormatClass(TextOutputFormat.class);
 //	        System.out.println("input output");
-	        job.setNumReduceTasks(1);
 
 //	        FileInputFormat.setInputPaths(job, inputFilePath);
 	        FileInputFormat.addInputPaths(job, "hdfs://192.168.178.19:8020/user/hue/csv/pos.csv");

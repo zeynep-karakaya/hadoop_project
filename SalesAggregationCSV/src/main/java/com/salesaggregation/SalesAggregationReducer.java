@@ -6,12 +6,12 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 
-public class SalesAggregationReducer extends Reducer<LongWritable, Text, Text, Text> {
+public class SalesAggregationReducer extends Reducer<Text, Text, Text, Text> {
 	LongWritable counter = new LongWritable(0);
 	LongWritable zero = new LongWritable(0);
 
 	@Override
-	 public void reduce(LongWritable key, Iterable<Text> values, Context output)
+	 public void reduce(Text key, Iterable<Text> values, Context output)
 	        throws IOException, InterruptedException {
 		 
 		    System.out.println("reducer");
@@ -20,7 +20,7 @@ public class SalesAggregationReducer extends Reducer<LongWritable, Text, Text, T
 		    for(Text value: values){
 		    	String valueString = value.toString();
 		    	System.out.println("key: "+key.toString()+" value: "+value );
-	            String[] valueArray = valueString.split("#");
+//	            String[] valueArray = valueString.split("#");
 	            text = new Text(text.toString()+" "+value.toString());
 	        }
 		    
