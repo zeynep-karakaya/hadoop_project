@@ -43,6 +43,7 @@ public class SalesAggregationApplication extends Configured implements Tool {
 		    config.set("mapred.job.tracker", "192.168.178.19:8021");
 		    config.set("fs.defaultFS", "hdfs://192.168.178.19:8020/user/hue");
 		    config.set("hadoop.job.ugi", "hue");
+		    config.set("hadoop.tmp.dir", "C:\\Users\\zeynep.karakaya\\Documents\\hadooptmp");
 //		    System.out.println("config settings");
 		 
 //		 if (args.length != 2) {
@@ -75,6 +76,12 @@ public class SalesAggregationApplication extends Configured implements Tool {
 	        long confstop = System.currentTimeMillis();
 	        long conftime = (confstop - confstart)/1000;
 	        System.out.println("Configuration done in "+conftime+"s");
+	       
+	        
+	        System.out.println(job.getUser());
+	        System.out.println(job.getWorkingDirectory());
+	        System.out.println(job.getConfiguration().get("hadoop.tmp.dir"));
+	        
 	        long jobstart = System.currentTimeMillis();
 	        job.submit();
 	        job.waitForCompletion(true);
