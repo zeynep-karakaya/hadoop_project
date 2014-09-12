@@ -3,7 +3,7 @@
   <groupId>com.hadoop.mapreduce.app</groupId>
   <artifactId>SalesAggregationCSV.app</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Vote Count </name>
+  <name>SalesAggregationCSV</name>
   <description>First MapReduce	</description>
   <dependencies>
   	<dependency>

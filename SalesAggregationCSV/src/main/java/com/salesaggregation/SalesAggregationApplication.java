@@ -44,6 +44,7 @@ public class SalesAggregationApplication extends Configured implements Tool {
 		    config.set("fs.defaultFS", "hdfs://192.168.178.19:8020/user/hue");
 		    config.set("hadoop.job.ugi", "hue");
 		    config.set("hadoop.tmp.dir", "C:\\Users\\zeynep.karakaya\\Documents\\hadooptmp");
+		    config.set("mapred.remote.os", "Linux");
 //		    System.out.println("config settings");
 		 
 //		 if (args.length != 2) {
